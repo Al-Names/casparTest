@@ -1,0 +1,25 @@
+<div>
+    <form (submit)="create()">
+            <h2>Add A New Therapist</h2>
+              <p>Name: <input type="text"
+                                     name="therapistName"
+                                     [(ngModel)]="newTherapist.name" /></p>
+              <p>Clinic: <input type="text"
+                                           name="clinic"
+                                           [(ngModel)]="newTherapist.clinic" /></p>
+              <p>Telephone: <input type="text"
+                                                    name="therapistTelephone"
+                                                    [(ngModel)]="newTherapist.telephone" /></p>
+              <p>Email: <input type="text"
+                                          name="therapistEmail"
+                                          [(ngModel)]="newTherapist.email" /></p>
+          
+              <p>
+                <input type="submit"  class="btn btn-primary">
+               
+                <button type="button"
+                             class="btn btn-warning"
+                             (click)="cancelNewTherapist()">Cancel</button>
+              </p>
+    </form>
+</div>

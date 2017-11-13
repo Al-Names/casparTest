@@ -1,0 +1,36 @@
+<div>
+      <h2>Therapists <a><i class= "fa fa-plus-circle" (click)= "showTherapists = !showTherapists" ></i></a></h2>
+      <hr>
+      <div *ngIf= "showTherapists"> 
+        <table *ngFor="let therapist of therapists" class="table table-bordered table-striped table-hover">
+          <thead>
+            <tr>
+              <th class="text-center">Name</th>
+              <th class="text-center">Clinic</th>
+              <th class="text-center">Telephone</th>
+              <th class="text-center">Email</th>
+              <th class="text-center">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ therapist.name }}</td>
+              <td>{{ therapist.clinic}}</td>
+              <td> {{ therapist.telephone}}</td>
+              <td>{{ therapist.email}}</td>
+              <td>
+                <button (click)="therapist.editable = !therapist.editable"class="btn btn-info">
+                  <i class= "fa fa-edit"></i>
+                </button>
+                <button (click)= "destroy()" class="btn btn-danger">
+                  <i class= "fa fa-minus"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        <app-user-edit-therapist (updateTherapistEvent)= "update($event)" [therapist]="therapist" *ngIf="therapist.editable"></app-user-edit-therapist>
+        </table>
+      </div>
+
+      
+</div>

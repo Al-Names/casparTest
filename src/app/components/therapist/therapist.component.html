@@ -1,0 +1,80 @@
+<div class="container container-fluid">
+    <div class= "introduction">
+      <h1>Welcome to your therapist profile!</h1>
+      <p>Please ensure all details are correct and up to date.</p>
+      <p>Is this a mistake?</p>
+      <p><a routerLink="/patient">Are you a patient?</a> 
+    </div>
+    
+    <div class= "thumbnail" id="patientCard">
+      <h1>{{title}} {{name}}</h1>
+      <ul>
+        <li>{{clinic}}</li>
+        <li>Email: {{email}}</li>
+        <li>{{address.street}} {{address.city}}, {{address.state}}</li>
+      </ul>
+    </div>
+    
+      <button (click)="isEdit = !isEdit" class= "btn btn-primary">Edit Details</button>
+    
+    <div *ngIf=isEdit>
+      <h1>Edit Details</h1>
+      <form>
+        <div>
+          <label for="title">Title: </label><br>
+          <input type="text" [(ngModel)]="title" name="title">
+        </div>
+        <div>
+          <label for="name">Name: </label><br>
+          <input type="text" [(ngModel)]="name" name="name">
+        </div>
+        <div>
+          <label for="clinic">Clinic: </label><br>
+          <input type="text" [(ngModel)]="clinic" name="clinic">
+        </div>
+        <div>
+          <label for="email">Email: </label><br>
+          <input type="text" [(ngModel)]="email" name="email">
+        </div>
+        <div>
+          <label for="street">Street: </label><br>
+          <input type="text" [(ngModel)]="address.street" name="street">
+        </div>
+        <div>
+          <label for="city">City: </label><br>
+          <input type="text" [(ngModel)]="address.city" name="city">
+        </div>
+        <div>
+          <label for="state">State: </label><br>
+          <input type="text" [(ngModel)]="address.state" name="state">
+        </div>
+      </form>
+    </div>
+    
+    <div>
+      <app-therapist-patients [patients]="patients" 
+          (destroyPatientEvent)="destroy($event)"
+          (updatePatientEvent)= "update($event)"
+      ></app-therapist-patients>
+      
+      <br />
+
+            <button class="btn btn-success"
+                   (click)="showNew = !showNew"><i class="fa fa-plus"></i></button>
+     
+
+    </div>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+    <div>
+      
+      <app-therapist-new-patient (createNewPatientEvent)="create($event)" *ngIf= "showNew"></app-therapist-new-patient>
+    </div>   
+
+
+</div>
+    

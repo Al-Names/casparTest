@@ -1,0 +1,23 @@
+
+<div>
+    <form (submit)="create()">
+            <h2>Add A New Patient</h2>
+              <p>Name: <input type="text"
+                                     name="patientName"
+                                     [(ngModel)]="newPatient.name" /></p>
+              <p>Age: <input type="text"
+                                           name="patientAge"
+                                           [(ngModel)]="newPatient.age" /></p>
+              <p>Telephone: <input type="text"
+                                                    name="patientTelephone"
+                                                    [(ngModel)]="newPatient.telephone" /></p>
+              <p>Email: <input type="text"
+                                          name="patientEmail"
+                                          [(ngModel)]="newPatient.email" /></p>
+          
+              <p>
+                <input type="submit"  class="btn btn-primary">
+               
+              </p>
+    </form>
+</div>

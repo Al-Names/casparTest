@@ -1,0 +1,59 @@
+
+<div>
+      <h2>Patients <a><i class= "fa fa-plus-circle" (click)= "showPatients = !showPatients" ></i></a></h2>
+      <hr>
+      <div *ngIf= "showPatients"> 
+        <div *ngFor= "let patient of patients" class="col-md-4" >
+         <div class="thumbnail" id="patientCard">
+           <div class="caption">
+                <h3>{{ patient.name }}</h3>
+                <h4> Age: {{ patient.age}}</h4>
+                <h5>Telephone: {{ patient.telephone}}</h5>
+                <h5>{{ patient.email}}</h5>
+                <hr>
+                <button (click)="patient.editable = !patient.editable" class="btn btn-info">
+                  <i class= "fa fa-edit"></i>
+                </button>
+                <button (click)= "destroy()" class="btn btn-danger">
+                   <i class= "fa fa-minus"></i>
+                </button>
+                  
+          </div>
+  
+        
+        </div>
+        <app-therapist-edit-patient (updatePatientEvent)= "update($event)" [patient]="patient" *ngIf="patient.editable"></app-therapist-edit-patient>
+          
+          <!--</div>-->
+          <!--<table *ngFor="let patient of patients" class="table table-bordered table-striped table-hover">-->
+          <!--  <thead>-->
+          <!--    <tr>-->
+          <!--      <th class="text-center">Name</th>-->
+          <!--      <th class="text-center">Age</th>-->
+          <!--      <th class="text-center">Telephone</th>-->
+          <!--      <th class="text-center">Email</th>-->
+          <!--      <th class="text-center">&nbsp;</th>-->
+          <!--    </tr>-->
+          <!--  </thead>-->
+          <!--  <tbody>-->
+          <!--    <tr>-->
+          <!--      <td>{{ patient.name }}</td>-->
+          <!--      <td>{{ patient.age }}</td>-->
+          <!--      <td> {{ patient.telephone}}</td>-->
+          <!--      <td>{{ patient.email}}</td>-->
+          <!--      <td>-->
+          <!--        <button (click)="patient.editable = !patient.editable" class="btn btn-info">-->
+          <!--          <i class= "fa fa-edit"></i>-->
+          <!--        </button>-->
+          <!--        <button (click)= "destroy()" class="btn btn-danger">-->
+          <!--          <i class= "fa fa-minus"></i>-->
+          <!--        </button>-->
+          <!--      </td>-->
+          <!--    </tr>-->
+          <!--  </tbody>-->
+          <!--<app-therapist-edit-patient (updatePatientEvent)= "update($event)" [patient]="patient" *ngIf="patient.editable"></app-therapist-edit-patient>-->
+          <!--</table>-->
+        </div>
+      </div>
+</div>
+  

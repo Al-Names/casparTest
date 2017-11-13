@@ -1,0 +1,26 @@
+<div>
+    <h4>Edit Patient Information</h4>
+    <div>
+        <form (submit)="update()">
+                
+                  <p>Name: <input type="text"
+                                         name="patientName"
+                                         [(ngModel)]="patientEdit.name" /></p>
+                  <p>Age: <input type="text"
+                                               name="patientAge"
+                                               [(ngModel)]="patientEdit.age" /></p>
+                  <p>Telephone: <input type="text"
+                                                        name="patientTelephone"
+                                                        [(ngModel)]="patientEdit.telephone" /></p>
+                  <p>Email: <input type="text"
+                                              name="patientEmail"
+                                              [(ngModel)]="patientEdit.email" /></p>
+              
+                  <p>
+                    <input type="submit"  class="btn btn-primary">
+                   
+                 
+                  </p>
+        </form>
+    </div>
+</div>

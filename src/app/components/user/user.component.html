@@ -1,0 +1,77 @@
+<div class="wrap">
+  
+ 
+  <div class="container">
+    <div class= "introduction">
+      <h1>Welcome to your patient profile!</h1>
+      <p>Please ensure all details are correct and up to date.</p>
+      <p>Is this a mistake?</p>
+      <p><a routerLink="/therapist">Are you a therapist?</a> Or <a routerLink="/clinic">perhaps a clinic?</a></p>
+    </div>
+    <div class= "thumbnail" id="patientCard">
+      <h1>{{name}}</h1>
+      <ul>
+        <li>Age: {{age}}</li>
+        <li>Email: {{email}}</li>
+        <li>{{address.street}} {{address.city}}, {{address.state}}</li>
+      </ul>
+    </div>
+    
+      <button (click)="toggleEdit()" class= "btn btn-primary">Edit Details</button>
+    
+    <div *ngIf=isEdit>
+      <h1>Edit Details</h1>
+      <form>
+        <div>
+          <label for="name">Name: </label><br>
+          <input type="text" [(ngModel)]="name" name="name">
+        </div>
+        <div>
+          <label for="age">Age: </label><br>
+          <input type="number" [(ngModel)]="age" name="age">
+        </div>
+        <div>
+          <label for="email">Email: </label><br>
+          <input type="text" [(ngModel)]="email" name="email">
+        </div>
+        <div>
+          <label for="street">Street: </label><br>
+          <input type="text" [(ngModel)]="address.street" name="street">
+        </div>
+        <div>
+          <label for="city">City: </label><br>
+          <input type="text" [(ngModel)]="address.city" name="city">
+        </div>
+        <div>
+          <label for="state">State: </label><br>
+          <input type="text" [(ngModel)]="address.state" name="state">
+        </div>
+      </form>
+    </div>
+    
+    
+    <div>
+      <app-user-therapists [therapists]="therapists" 
+          (destroyTherapistEvent)="destroy($event)"
+          (updateTherapistEvent)= "update($event)"
+      ></app-user-therapists>
+      
+      <br />
+
+            <button class="btn btn-success"
+                   (click)="showNew = !showNew"><i class="fa fa-plus"></i></button>
+      
+      <app-user-new-therapist (createNewTherapistEvent)="create($event)" *ngIf= "showNew"></app-user-new-therapist>
+  
+    </div>
+    <h1>Journal Entries <a><i class= "fa fa-plus-circle" (click)= "showJournal = !showJournal" ></i></a></h1>
+    <hr>
+    <div *ngIf= "showJournal">
+      <div *ngFor="let post of posts" >
+        <h4>{{post.title}}</h4>
+        <p>{{post.body}}</p>
+      </div>
+    </div>
+  </div>
+ 
+</div>  
