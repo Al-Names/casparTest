@@ -17,9 +17,9 @@ export class UserComponent implements OnInit {
   hello:any;
   posts:Post[];
   isEdit:boolean = false;
-  therapists: Array<UserTherapist>= [ new UserTherapist("First","Last", 600,"email@email.com"),
-    new UserTherapist("First","Last",40,"email@email.com"),
-    new UserTherapist("First","Last",60,"email@email.com")];
+  therapists: Array<UserTherapist>= [ new UserTherapist("Doctor","Facility", 080033600,"email@email.com"),
+    new UserTherapist("Doctor","Hospital Five",018007840,"email@email.com"),
+    new UserTherapist("Name","Clinic",60,"email@email.com")];
     
   constructor(private dataService:DataService, private userService:UserService ) {
     console.log('constructors ran..');
